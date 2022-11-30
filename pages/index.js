@@ -34,9 +34,9 @@ const Home = () => {
   const _renderOutline = () => {
     // if statement for when outlineText is empty and not generating
     if (isGenerating) {
-      return 'Generating...'
+        return 'Generating...';
     } else if (outlineText === '') {
-      return null
+        return null;
     } else {
       return <Outline content={outlineText} />
     }

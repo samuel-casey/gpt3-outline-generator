@@ -6,7 +6,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const basePrompt = "";
+const basePrompt = "Rhyme with this: ";
 const generateAction = async (req, res) => {
   // Run first prompt
   console.log(`API: ${basePrompt}${req.body.userInput}`)
