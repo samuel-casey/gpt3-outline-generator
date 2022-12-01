@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap');
-
 body {
     margin: 0;
     padding: 0;
@@ -10,7 +9,7 @@ body {
     display: flex;
     place-content: center flex-start;
     align-items: center;
-    background-color: rgb(0, 0, 0);
+    background-color: #22374A;
     flex-flow: column nowrap;
     gap: 10px;
     height: 100vh;
@@ -35,7 +34,7 @@ body {
     gap: 64px;
 }
 
-.header {    
+.header {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -117,11 +116,9 @@ textarea {
     font-family: 'Manrope', sans-serif;
 }
 
-
 .prompt-box:focus {
-    border-color:rgba(255, 255, 255, 0.75)
+    border-color: rgba(255, 255, 255, 0.75)
 }
-
 
 .prompt-buttons {
     display: flex;
@@ -172,7 +169,26 @@ textarea {
 .generate-button {
     place-content: flex-start;
     align-items: flex-start;
-    background-color: rgb(255, 79, 18);
+    background-color: #8DE4C4;
+    border-radius: 100px;
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: column nowrap;
+    gap: 10px;
+    height: min-content;
+    overflow: hidden;
+    padding: 16px 24px;
+    position: relative;
+    text-decoration: none;
+    width: min-content;
+    will-change: transform;
+    cursor: pointer;
+}
+
+.secondary-button {
+    place-content: flex-start;
+    align-items: flex-start;
+    background-color: #000000;
     border-radius: 100px;
     display: flex;
     flex: 0 0 auto;
@@ -331,12 +347,10 @@ textarea {
         max-width: 600px;
         width: 100%;
     }
-
     .prompt-container {
         max-width: 600px;
         width: 100%;
     }
-
     .prompt-box {
         width: 100%;
     }
@@ -347,12 +361,10 @@ textarea {
         max-width: 500px;
         width: 100%;
     }
-
     .prompt-container {
         max-width: 500px;
         width: 100%;
     }
-
     .prompt-box {
         width: 100%;
     }
@@ -363,36 +375,31 @@ textarea {
         max-width: 400px;
         width: 100%;
     }
-
     .header-title h1 {
         font-size: 50px;
     }
-
     .header-subtitle h2 {
         text-align: center;
     }
-
-    .key-stroke, .or {
+    .key-stroke,
+    .or {
         display: none;
     }
-
     .prompt-buttons {
         justify-content: center;
     }
-
     .prompt-container {
         max-width: 400px;
         width: 100%;
     }
-
     .prompt-box {
         width: 100%;
     }
 }
 
 
+/* Loading ring animation */
 
- /* Loading ring animation */
 .loader {
     width: 18px;
     height: 18px;
@@ -408,7 +415,6 @@ textarea {
     0% {
         transform: rotate(0deg);
     }
-
     100% {
         transform: rotate(360deg);
     }

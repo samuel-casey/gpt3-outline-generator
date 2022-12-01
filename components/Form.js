@@ -1,30 +1,10 @@
 import { useState, useEffect } from 'react'
+import ReactSlider from 'react-slider'
 
 const Form = ({ submitForm }) => {
   // make a form with an input and a button
   // when the button is clicked, the input value is logged to the console
   const [inputValue, setInputValue] = useState('')
-
-
-const callGenerateEndpoint = async () => {
-  setIsGenerating(true);
-  
-  console.log("Calling OpenAI...")
-  const response = await fetch('/api/generate', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ userInput }),
-  });
-
-  const data = await response.json();
-  const { output } = data;
-  console.log("OpenAI replied...", output.text)
-
-  setApiOutput(`${output.text}`);
-  setIsGenerating(false);
-}
 
   const handleInputChange = (e) => {
     // set the value of the input to the state
@@ -54,6 +34,16 @@ const callGenerateEndpoint = async () => {
           </div>
         </a>
       </div>
+      <ReactSlider
+          className="horizontal-slider"
+          marks
+          markClassName="example-mark"
+          min={0}
+          max={2}
+          thumbClassName="example-thumb"
+          trackClassName="example-track"
+          renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
+        />
     </form>
   )
 }
