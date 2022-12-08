@@ -8,25 +8,25 @@ const Home = () => {
   const [outlineText, setOutlineText] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
 
-  const fetchOutline = async (formInput) => {
+  const fetchOutline = async ({userInput, promptType, complexity}) => {
     console.log('Calling OpenAI...')
     const response = await fetch('/api/generate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ formInput }),
+      body: JSON.stringify({ userInput, promptType, complexity }),
     })
 
     const data = await response.json()
-    const { output } = data
-    return `${output.text}`
+    console.log('Open API response: ', data);
+    return data.output.followUpPromptOutput.text
   }
 
-  const handleSubmitForm = async (formInput) => {
+  const handleSubmitForm = async ({ userInput, promptType, complexity }) => {    
     // fetch output from GPT-3
     setIsGenerating(true)
-    const outline = await fetchOutline(formInput)
+    const outline = await fetchOutline({userInput, promptType, complexity})
     setIsGenerating(false)
     setOutlineText(outline)
   }
@@ -57,6 +57,8 @@ const Home = () => {
           </div>
           <div className="form-container">
             <Form submitForm={handleSubmitForm} />
+          </div>
+          <div className="outline-container">
             {_renderOutline()}
           </div>
         </div>
